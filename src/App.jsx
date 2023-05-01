@@ -1,5 +1,5 @@
-const App = () => {
-  return <></>
-}
+import { Router } from './routes'
+
+const App = () => <Router />
 
 export default App
