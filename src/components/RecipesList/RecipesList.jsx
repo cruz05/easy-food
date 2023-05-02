@@ -1,18 +1,8 @@
-import { useEffect, useState } from 'react'
+import { useRecipes } from '../../hooks/useRecipes'
 import { Container } from './RecipesList.styles'
 
-const API_URL = 'https://api.spoonacular.com/recipes'
-const API_KEY = import.meta.env.VITE_API_KEY
-
 export function RecipesList() {
-  const [recipes, setRecipes] = useState([])
-
-  useEffect(() => {
-    fetch(`${API_URL}/complexSearch?apiKey=${API_KEY}`)
-      .then(res => res.json())
-      .then(({ results }) => setRecipes(results))
-      .catch(error => console.error(error))
-  }, [])
+  const { recipes } = useRecipes()
 
   return (
     <Container>

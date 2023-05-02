@@ -5,7 +5,7 @@ export const Container = styled.div`
   grid-template-columns: repeat(auto-fit, minmax(25rem, 1fr));
   place-items: center;
   gap: 1rem;
-  padding: 1rem;
+  padding-block: 1rem;
 
   .recipe-card {
     cursor: pointer;
