@@ -8,7 +8,6 @@ export const StyledHeader = styled.header`
   background-color: #222831;
   padding: 1.5rem 3rem;
   color: white;
-  box-sizing: border-box;
 
   .brand {
     font-size: 3.4rem;
@@ -24,7 +23,7 @@ export const StyledHeader = styled.header`
     display: flex;
     gap: 1rem;
 
-    @media (max-width: 500px) {
+    @media (max-width: 600px) {
       display: none;
     }
 
@@ -33,7 +32,6 @@ export const StyledHeader = styled.header`
       border-radius: 0.4rem;
     }
     .active {
-      // border-bottom: 1px solid #ffd369;
       color: #ffd369;
     }
   }
