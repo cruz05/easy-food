@@ -11,7 +11,23 @@ html {
     font-family: 'Rubik', sans-serif;
 }
 
+img{
+    width: 100%
+}
+
 body { 
     font-size: 1.6rem;
+}
+
+body::-webkit-scrollbar {
+    width: 0.4rem;
+}
+
+body::-webkit-scrollbar-track {
+    box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+}
+
+body::-webkit-scrollbar-thumb {
+    background-color: gray;
 }
 `

@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 
-export const Container = styled.div`
+export const Container = styled.section`
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(25rem, 1fr));
   place-items: center;
@@ -9,7 +9,8 @@ export const Container = styled.div`
 
   .recipe-card {
     cursor: pointer;
-    box-shadow: 0.2rem 0.2rem 1.4rem #ccc;
+    // box-shadow: 0.2rem 0.2rem 1.4rem #ccc;
+    border: 1px solid rgba(0, 0, 0, 0.1);
     border-radius: 0.5rem;
     min-height: 28rem;
     overflow: hidden;
