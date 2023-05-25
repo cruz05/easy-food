@@ -6,21 +6,19 @@ export const Container = styled.div`
   flex-flow: column nowrap;
 
   main {
-    padding: 1rem 1.5rem;
+    padding: 2rem 6rem;
     flex-grow: 2;
-    display: grid;
+    display: flex;
     align-items: center;
-    @media (min-width: 700px) {
-      width: 85%;
-      margin-inline: auto;
-    }
+    justify-content: center;
   }
 
   footer {
     display: flex;
+    flex-flow: row wrap;
     justify-content: space-between;
     background-color: #222831;
-    padding: 1.5rem 3rem;
+    padding: 1.5rem 6rem;
     gap: 2rem;
 
     & * {
@@ -35,6 +33,16 @@ export const Container = styled.div`
 
     a {
       text-decoration: none;
+      &:hover {
+        color: #a0a0a0;
+      }
+    }
+  }
+
+  @media (max-width: 600px) {
+    main,
+    footer {
+      padding-inline: 2rem;
     }
   }
 `
