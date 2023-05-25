@@ -14,3 +14,17 @@ export const getRecipes = async (type = 'all', query = '') => {
     console.error(err)
   }
 }
+
+export const getRecipeInfoById = async id => {
+  try {
+    const response = await fetch(
+      `${API_URL}/${id}/information?apiKey=${API_KEY}`
+    )
+    const recipe = await response.json()
+
+    console.log(recipe)
+    return recipe
+  } catch (error) {
+    console.error(error)
+  }
+}
