@@ -5,10 +5,10 @@ import App from './App.jsx'
 import { GlobalStyle } from './main.styles.js'
 
 ReactDOM.createRoot(document.getElementById('root')).render(
-  <BrowserRouter>
+  <React.StrictMode>
     <GlobalStyle />
-    <React.StrictMode>
+    <BrowserRouter>
       <App />
-    </React.StrictMode>
-  </BrowserRouter>
+    </BrowserRouter>
+  </React.StrictMode>
 )
