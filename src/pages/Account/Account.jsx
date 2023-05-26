@@ -4,8 +4,10 @@ import { AuthContext } from '../../context/AuthContext'
 import { Container } from './Account.styles'
 import avatar from '../../assets/avatar.png'
 import { Button } from '../../components/Button/Button'
+import { useLocalStorage } from '../../hooks/useLocalStorage'
 
 export function Account() {
+  const [recipes] = useLocalStorage('createdRecipes')
   const { user } = useContext(AuthContext)
 
   return (
@@ -18,7 +20,8 @@ export function Account() {
           onError={e => (e.currentTarget.src = avatar)}
         />
         <div className='card-info'>
-          <p className='username'>{user.displayName}</p>
+          <p className='username'>{user.displayName}</p>{' '}
+          {recipes.length > 0 && <span className='badge'>Creator</span>}
           <p className='email'>{user.email} </p>
           <Button to='/account'>Edit Profile</Button>
         </div>

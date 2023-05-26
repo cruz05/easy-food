@@ -33,7 +33,7 @@ export function Recipes() {
         </button>
       </form>
       <Categories handleChange={handleChange} />
-      <RecipeList recipes={recipes}>Loading...</RecipeList>
+      <RecipeList recipes={recipes} altMessage='Loading...' />
     </Container>
   )
 }
