@@ -4,35 +4,31 @@ import { FaRegBookmark, FaBookmark } from 'react-icons/fa'
 import { useLocalStorage } from '../../hooks/useLocalStorage'
 import { useState } from 'react'
 
-export function RecipeCard({ recipe }) {
+export function RecipeCard({ recipe, handleSaveRecipe, handleRemoveRecipe }) {
   const { id, image, title } = recipe
-  const [recipeCollection, setRecipeCollection] = useLocalStorage(
-    'collection',
-    []
-  )
+  const [recipeCollection] = useLocalStorage('collection')
   const [savedRecipe, setSavedRecipe] = useState(
     recipeCollection.some(recipe => recipe.id === id)
   )
 
-  const handleSaveRecipe = () => {
+  const handleAdd = () => {
+    handleSaveRecipe(id, recipe)
     setSavedRecipe(true)
-    const savedRecipe = recipeCollection.find(recipe => recipe.id === id)
-    if (!savedRecipe) setRecipeCollection([...recipeCollection, recipe])
   }
 
-  const handleRemoveRecipe = () => {
+  const handleDelete = () => {
+    handleRemoveRecipe(id)
     setSavedRecipe(false)
-    setRecipeCollection(recipeCollection.filter(recipe => recipe.id !== id))
   }
 
   return (
     <Card>
       {savedRecipe ? (
-        <button type='button' onClick={handleRemoveRecipe}>
+        <button type='button' onClick={handleDelete}>
           <FaBookmark />
         </button>
       ) : (
-        <button type='button' onClick={handleSaveRecipe}>
+        <button type='button' onClick={handleAdd}>
           <FaRegBookmark />
         </button>
       )}

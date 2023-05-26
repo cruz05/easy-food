@@ -2,10 +2,6 @@ import styled from 'styled-components'
 
 export const Card = styled.div`
   cursor: pointer;
-  // box-shadow: 0.2rem 0.2rem 1.4rem #ccc;
-  border: 1px solid rgba(0, 0, 0, 0.05);
-  border-radius: 0.5rem;
-  min-height: 28rem;
   overflow: hidden;
   padding-bottom: 1rem;
   position: relative;
@@ -17,7 +13,7 @@ export const Card = styled.div`
     position: absolute;
     z-index: 5;
     background-color: white;
-    padding: 0.5rem 0.6rem;
+    padding: 0.7rem 0.8rem;
     border-radius: 50%;
     border: none;
     right: 0.5rem;
@@ -25,10 +21,15 @@ export const Card = styled.div`
   }
 
   img {
+    max-height: 34rem;
     width: 100%;
+    object-fit: cover;
+    border-radius: 0.5rem;
   }
 
   h3 {
-    padding-inline: 1rem;
+    color: #000;
+    margin-top: 0.5rem;
+    padding-inline: 0.3rem;
   }
 `

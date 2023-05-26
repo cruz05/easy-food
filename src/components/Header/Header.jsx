@@ -1,7 +1,12 @@
+import { useContext } from 'react'
 import { Link, NavLink } from 'react-router-dom'
+import { AuthContext } from '../../context/AuthContext'
 import { StyledHeader } from './Header.styles'
+import { Dropdown } from '../Dropdown/Dropdown'
 
 export function Header() {
+  const { user } = useContext(AuthContext)
+
   return (
     <StyledHeader>
       <Link to='/'>
@@ -13,12 +18,18 @@ export function Header() {
           to='/recipes'>
           Recipes
         </NavLink>
-        <NavLink className='btn-login' to='/login'>
-          Sign in
-        </NavLink>
-        <NavLink className='btn-register' to='/register'>
-          Register
-        </NavLink>
+        {user ? (
+          <Dropdown />
+        ) : (
+          <>
+            <NavLink className='btn-login' to='/login'>
+              Sign in
+            </NavLink>
+            <NavLink className='btn-register' to='/register'>
+              Register
+            </NavLink>
+          </>
+        )}
       </nav>
     </StyledHeader>
   )

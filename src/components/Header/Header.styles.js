@@ -5,44 +5,58 @@ export const StyledHeader = styled.header`
   align-items: center;
   flex-flow: wrap row;
   justify-content: space-between;
-  background-color: #222831;
-  padding: 1.5rem 3rem;
-  color: white;
+  padding: 1.5rem 6rem;
+  border-bottom: 1px solid #e2e2e2;
+
+  @media (max-width: 600px) {
+    padding-inline: 2.5rem;
+  }
 
   .brand {
-    font-size: 3.4rem;
+    color: #f5b200;
+    font-size: 3.2rem;
     font-weight: 500;
+  }
+  & > p {
+    color: #c6c6c6;
   }
 
   a {
     text-decoration: none;
-    color: white;
+    color: #221;
   }
 
   nav {
     display: flex;
+    align-items: center;
     gap: 1rem;
-
-    @media (max-width: 600px) {
-      display: none;
-    }
 
     a {
       padding: 0.4rem 1rem;
       border-radius: 0.4rem;
     }
     .active {
-      color: #ffd369;
+      color: #f5b200;
     }
   }
-  .btn-login {
+  button {
     font-weight: 600;
-    border: 1px solid #ffd369;
+  }
+
+  .btn-login {
+    border: 2px solid #ffd369;
   }
 
   .btn-register {
-    font-weight: 600;
     background-color: #ffd369;
     color: #000;
+  }
+
+  .btn-logout {
+    appearance: none;
+    background-color: #0c0a09;
+    border: none;
+    padding: 0.5rem 1.5rem;
+    color: white;
   }
 `
