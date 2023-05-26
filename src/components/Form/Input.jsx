@@ -5,6 +5,15 @@ const Field = styled.fieldset`
   padding: 0;
   margin: 0;
   width: 100%;
+
+  input {
+    border-radius: 0.4rem;
+    font-size: 1.5rem;
+    border: 1px solid #bbb;
+    padding: 0.9rem 1rem;
+    width: 100%;
+    margin-block: 0.5rem;
+  }
 `
 
 export function Input({ label, id, type, ...props }) {

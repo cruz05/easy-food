@@ -41,6 +41,7 @@ export const List = styled.div`
       border-radius: 0.8rem;
       border: 0.2rem solid #cccccc9d;
       color: #565656;
+      cursor: pointer;
     }
 
     &::-webkit-scrollbar {
