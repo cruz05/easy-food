@@ -4,6 +4,7 @@ import { AuthContext } from '../context/AuthContext'
 import { Container } from '../components/Form/Form.styles'
 import { Form } from '../components/Form/Form'
 import { GoogleButton, FacebookButton } from '../components/Button/AuthButton'
+import { BsArrowLeftShort } from 'react-icons/bs'
 
 export function Login() {
   const { user, signInWithAccount } = useContext(AuthContext)
@@ -29,10 +30,13 @@ export function Login() {
 
   return (
     <Container>
+      <Link to='/' className='btn-home'>
+        <BsArrowLeftShort />
+      </Link>
       <div>
         <h2>Welcome back!</h2>
         <p>Please enter your details to sign in.</p>
-        <Form id='login' onSubmit={handleSubmit} />
+        <Form id='login' handleSubmit={handleSubmit} />
         <p className='divider'>
           <span>Or sign in with</span>
         </p>

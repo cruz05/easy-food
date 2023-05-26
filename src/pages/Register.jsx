@@ -6,6 +6,7 @@ import { Form } from '../components/Form/Form'
 import { Input } from '../components/Form/Input'
 import { updateProfile } from 'firebase/auth'
 import { FacebookButton, GoogleButton } from '../components/Button/AuthButton'
+import { BsArrowLeftShort } from 'react-icons/bs'
 
 export function Register() {
   const { createAccount } = useContext(AuthContext)
@@ -29,6 +30,9 @@ export function Register() {
 
   return (
     <Container>
+      <Link to='/' className='btn-home'>
+        <BsArrowLeftShort />
+      </Link>
       <div>
         <h2>Create an account</h2>
         <p>Join to us and cook with confidence.</p>

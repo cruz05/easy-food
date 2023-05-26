@@ -34,6 +34,10 @@ export const Container = styled.section`
         margin-bottom: 0.5rem;
       }
 
+      .badge {
+        color: #ffb300;
+      }
+
       @media (max-width: 430px) {
         text-align: center;
       }

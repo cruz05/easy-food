@@ -123,4 +123,14 @@ export const Container = styled.main`
     font-weight: 600;
     color: #191a1c;
   }
+
+  .btn-home {
+    appearance: none;
+    position: absolute;
+    border: 1px solid #ccc;
+    padding: 0.9rem 1.2rem;
+    border-radius: 100%;
+    top: 1rem;
+    left: 1rem;
+  }
 `
