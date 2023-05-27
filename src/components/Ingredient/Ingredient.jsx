@@ -18,6 +18,7 @@ const Item = styled.div`
   }
 
   svg {
+    min-width: 1.6rem;
     fill: ${({ check }) => (check ? '#32b000' : '#e7e7e7d4')};
   }
 `

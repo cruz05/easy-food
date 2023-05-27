@@ -1,78 +1,88 @@
 import styled from 'styled-components'
 
 export const Container = styled.div`
-  @media (min-width: 650px) {
+  @media (min-width: 620px) {
+    max-width: 95%;
+  }
+
+  @media (min-width: 900px) {
     max-width: 85%;
   }
 
   .header {
-    display: flex;
-    flex-flow: row wrap;
+    text-align: center;
     margin-bottom: 1rem;
-    gap: 1rem 2rem;
 
-    .recipe {
-      flex: 1 1 40rem;
-    }
+    img {
+      display: block;
+      width: 100%;
+      border-radius: 0.5rem;
+      margin-inline: auto;
 
-    .recipe-info {
-      align-self: center;
-      flex-grow: 1;
-    }
-  }
-
-  img {
-    display: block;
-    width: 100%;
-    border-radius: 0.5rem;
-
-    @media (min-width: 700px) {
-      max-width: 50rem;
+      @media (min-width: 700px) {
+        max-width: 48rem;
+      }
     }
   }
 
   h1 {
-    margin-bottom: 0.8rem;
+    margin-bottom: 0.6rem;
+    font-size: 3.6rem;
   }
 
   ul,
   ol {
     padding-inline: 2.4rem 0;
   }
-
-  .main-info {
-    display: flex;
-    gap: 0.5rem;
-    flex-flow: row wrap;
-    margin-block: 0.8rem;
-
-    & > * {
-      border: 2px solid #fdd835;
-    }
-
-    .minutes {
-      width: fit-content;
-      text-align: center;
-      display: flex;
-      align-items: center;
-      border-radius: 0.7rem;
-      padding: 0.6rem 2rem;
-    }
-
-    span {
-      text-align: center;
-      text-break: none;
-      border-radius: 0.5rem;
-      flex: 1 1 3rem;
-      padding: 0.5rem 1.6rem;
-    }
-
-    span:nth-child(2) {
-      flex-grow: 1.5;
+  .author {
+    margin-bottom: 1rem;
+    a {
+      text-decoration: none;
+      color: #1543a8;
     }
   }
 
-  .lists {
+  .details {
+    display: flex;
+    gap: 0.5rem;
+    flex-flow: column nowrap;
+    margin-block: 0.8rem;
+
+    h2 {
+      width: fit-content;
+    }
+
+    .cuisines,
+    .dish-types,
+    .diets {
+      display: flex;
+      flex-flow: row wrap;
+      gap: 0.5rem;
+      align-items: center;
+    }
+
+    .minutes {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      width: fit-content;
+      text-align: center;
+      border-radius: 0.7rem;
+      padding: 0.6rem 1.2rem;
+      color: #585b5e;
+    }
+
+    .dish-types {
+      span {
+        text-align: center;
+        border-radius: 0.5rem;
+        padding: 0.5rem 1.6rem;
+        border: 2px solid #788595;
+      }
+    }
+  }
+
+  .content {
     width: 100%;
     display: flex;
     flex-flow: row wrap;

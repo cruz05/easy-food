@@ -17,50 +17,53 @@ export function RecipeDetails() {
 
   return (
     <Container>
-      <h1>{recipe?.title}</h1>
       <div className='header'>
-        <div className='recipe'>
-          <img src={recipe.image} alt='Recipe Photo.' />
+        <h1>{recipe?.title}</h1>
+        <p className='author'>
+          By <Link to={recipe.sourceUrl}>{recipe?.sourceName}</Link>
+        </p>
+        <div className='recipe-img'>
+          <img src={recipe?.image} alt='Recipe Photo.' />
         </div>
-        <div className='recipe-info'>
-          <p>
-            Source: <Link to={recipe.sourceUrl}>{recipe.sourceName}</Link>
-          </p>
-          <div>
-            <div className='main-info'>
-              <p className='minutes'>
-                <HiOutlineClock />
-                {recipe.readyInMinutes} minutes
-              </p>
-              {recipe?.dishTypes.map((type, i) => (
-                <span key={i}>{type}</span>
-              ))}
-            </div>
-            <div className='diets'>
-              <h2>Diets</h2>
-              <ul>
-                {recipe?.diets.map((diet, i) => (
-                  <li key={i}>{diet}</li>
-                ))}
-              </ul>
-            </div>
+        <div className='details'>
+          <div className='dish-types'>
+            {recipe?.dishTypes.map((type, i) => (
+              <span key={i}>{type}</span>
+            ))}
           </div>
+          <p className='minutes'>
+            <HiOutlineClock />
+            {recipe?.readyInMinutes} minutes
+          </p>
+          {recipe?.cuisines.length > 0 && (
+            <div className='cuisines'>
+              <h2>Cuisines: </h2>
+              <p>{recipe.cuisines.join(', ')}</p>
+            </div>
+          )}
+          {recipe?.diets.length > 0 && (
+            <div className='diets'>
+              <h2>Diets: </h2>
+              <p>{recipe.diets.join(', ')}</p>
+            </div>
+          )}
         </div>
       </div>
-      <div className='lists'>
+      {}
+      <div className='content'>
         <div className='ingredients'>
           <h2>
             Ingredients
-            <span className='servings'> / {recipe.servings} servings</span>
+            <span className='servings'> / {recipe?.servings} servings</span>
           </h2>
-          {recipe.extendedIngredients.map((ingredient, i) => (
-            <Ingredient key={i} name={ingredient.original} />
+          {recipe?.extendedIngredients.map(({ original }, i) => (
+            <Ingredient key={i} name={original} />
           ))}
         </div>
         <div className='instructions'>
           <h2>Instructions</h2>
           <ol>
-            {recipe.analyzedInstructions.map(({ name, steps }, i) => (
+            {recipe?.analyzedInstructions.map(({ name, steps }, i) => (
               <>
                 {name && <li key={i}>{name}</li>}
                 {steps.map(({ step }, i) => (
