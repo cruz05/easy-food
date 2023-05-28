@@ -19,6 +19,7 @@ export function Form({ id, handleSubmit, children }) {
         name='password'
         type='password'
         placeholder='min 6 characters'
+        autoComplete='on'
         required
       />
       <button type='submit' className='btn-submit'>
