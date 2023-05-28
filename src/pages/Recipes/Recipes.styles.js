@@ -44,4 +44,17 @@ export const Container = styled.section`
       cursor: pointer;
     }
   }
+
+  .btn-load {
+    margin: 1.4rem;
+    text-align: center;
+    appearance: none;
+    border: none;
+    display: block;
+    padding: 0.9rem 2.4rem;
+    margin-inline: auto;
+    cursor: pointer;
+    border-radius: 0.4rem;
+    font-weight: 500;
+  }
 `

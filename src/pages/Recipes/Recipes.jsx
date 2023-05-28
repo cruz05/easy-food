@@ -9,7 +9,13 @@ import { MdSearch } from 'react-icons/md'
 
 export function Recipes() {
   const { user } = useContext(AuthContext)
-  const { handleFilterSelect, handleRecipeSearch, recipes } = useRecipes()
+  const {
+    recipes,
+    loading,
+    handleFilterSelect,
+    handleRecipeSearch,
+    handleRecipesLoad,
+  } = useRecipes()
 
   const handleSubmit = e => {
     e.preventDefault()
@@ -20,6 +26,7 @@ export function Recipes() {
     }
   }
 
+  const handleClick = () => handleRecipesLoad(recipes.length)
   const handleChange = e => handleFilterSelect(e.target.value)
 
   return (
@@ -34,6 +41,11 @@ export function Recipes() {
       </form>
       <Categories handleChange={handleChange} />
       <RecipeList recipes={recipes} altMessage='Loading...' />
+      {!loading && (
+        <button className='btn-load' onClick={handleClick}>
+          Load more recipes
+        </button>
+      )}
     </Container>
   )
 }
