@@ -1,14 +1,16 @@
-import { useContext, useEffect } from 'react'
+import { useContext, useEffect, useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 import { AuthContext } from '../context/AuthContext'
 import { Container } from '../components/Form/Form.styles'
 import { Form } from '../components/Form/Form'
 import { GoogleButton, FacebookButton } from '../components/Button/AuthButton'
 import { BsArrowLeftShort } from 'react-icons/bs'
+import { Toast } from '../components/Toast/Toast'
 
 export function Login() {
   const { user, signInWithAccount } = useContext(AuthContext)
   const navigate = useNavigate()
+  const [error, setError] = useState(null)
 
   const handleSubmit = async e => {
     e.preventDefault()
@@ -18,7 +20,14 @@ export function Login() {
       console.log(result)
       navigate('/recipes')
     } catch (error) {
-      console.log(error)
+      if (error.code === 'auth/wrong-password') {
+        setError('Password incorrect. Please try again.')
+      } else if (error.code === 'auth/user-not-found') {
+        setError('We could not reach the email address provided.')
+      } else {
+        setError('Internal Server Error. Try again later.')
+      }
+      // console.log(error.code)
     }
   }
 
@@ -28,8 +37,15 @@ export function Login() {
     }
   }, [user, navigate])
 
+  const closeToast = () => setError(null)
+
   return (
     <Container>
+      {error && (
+        <Toast error onClose={closeToast}>
+          {error}
+        </Toast>
+      )}
       <Link to='/' className='btn-home'>
         <BsArrowLeftShort />
       </Link>
