@@ -56,7 +56,7 @@ export const Container = styled.main`
     max-width: 45rem;
   }
 
-  & > div {
+  & > div:last-child {
     padding: 0 1rem;
   }
 
